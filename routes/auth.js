@@ -89,7 +89,7 @@ router.post("/logout", isLoggedIn(), (req, res, next) => {
   return;
 });
 
-// GET '/private'   --> Only for testing
+// GET '/private'   --> Only for testing.
 
 // revisa si el usuario está logueado usando la función helper (chequea si existe la sesión), y devuelve un mensaje
 router.get("/private", isLoggedIn(), (req, res, next) => {
