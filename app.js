@@ -12,7 +12,7 @@ const cors = require("cors");
 
 const auth = require("./routes/auth");
 
-// MONGOOSE CONNECTION
+// MONGOOSE CONNECTION:
 mongoose
   .connect(process.env.MONGODB_URI, {
     useUnifiedTopology: true,
