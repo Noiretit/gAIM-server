@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const User = require("../models/user");
 
-// HELPER FUNCTIONS
+// HELPER FUNCTIONS:
 const {
   isLoggedIn,
   isNotLoggedIn,
