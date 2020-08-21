@@ -19,6 +19,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    picture: String,
     transactions: [
       {
         type: Schema.Types.ObjectId,
@@ -31,7 +32,6 @@ const userSchema = new Schema(
         ref: "Comments",
       },
     ],
-    picture: String,
   },
   {
     timestamps: true,
