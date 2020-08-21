@@ -11,6 +11,9 @@ const MongoStore = require("connect-mongo")(session);
 const cors = require("cors");
 
 const auth = require("./routes/auth");
+const marketplaceRouter = require("./routes/marketplace")
+const reviewRouter = require("./routes/review")
+const userRouter = require("./routes/user")
 
 // MONGOOSE CONNECTION:
 mongoose
@@ -65,6 +68,9 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // ROUTER MIDDLEWARE
 app.use("/auth", auth);
+app.use("/api", marketplaceRouter);
+app.use("/api", reviewRouter);
+app.use("/api", userRouter);
 
 // ERROR HANDLING
 // catch 404 and forward to error handler
