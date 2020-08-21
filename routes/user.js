@@ -8,11 +8,14 @@ const {
   validationLoggin,
 } = require("../helpers/middlewares");
 
-
-// GET '/profile'
-router.get("/profile", isLoggedIn(), (req, res, next) => {
+// GET '/myprofile'
+router.get("/myprofile", isLoggedIn(), (req, res, next) => {
   res.status(200).json({ message: "You are on your profile!" });
 });
 
+// GET '/videogames'
+router.get("/videogames", isLoggedIn(), (req, res, next) => {
+  res.status(200).json({ message: "You are on the videogames page!" });
+});
 
 module.exports = router;
