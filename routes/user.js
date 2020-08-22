@@ -18,14 +18,15 @@ router.get("/myprofile", isLoggedIn(), (req, res, next) => {
 router.put("/myprofile/edit", isLoggedIn(), async (req, res, next) => {
     try {
         const {username, email, genre} = req.body;
-    
-        await User.findByIdAndUpdate(
+        // console.log(req.body)
+        // console.log(req.session.currentUser)
+
+        const updatedUser = await User.findByIdAndUpdate(
             req.session.currentUser._id, 
             {username, email, genre},
             {new: true}
         );
         
-        const updatedUser = await User.findById();
         req.session.currentUser = updatedUser;
         res.status(200).json(updatedUser)
     }
