@@ -20,6 +20,11 @@ const userSchema = new Schema(
       required: true,
     },
     picture: String,
+    favoriteVideogames: [{
+      type: String,
+      enum: ['to play', 'playing', 'beaten', 'dropped'],
+      default: 'to play',
+    }],
     transactions: [
       {
         type: Schema.Types.ObjectId,
