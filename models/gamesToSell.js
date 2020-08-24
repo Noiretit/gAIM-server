@@ -8,7 +8,6 @@ const gamesToSellSchema = new Schema(
     },
     price: {
       type: String,
-      required: true,
     },
     status: {
       type: String,
@@ -17,7 +16,6 @@ const gamesToSellSchema = new Schema(
     },
     childrenPlatform: {
       type: String,
-      required: true,
     },
     user: {
       type: Schema.Types.ObjectId,
