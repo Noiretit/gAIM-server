@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 
-const User = require('../models/user');
 const Review = require('../models/comments');
 
 
@@ -20,6 +19,7 @@ router.post(
 //  Ruta para encontrar todos los reviews
 router.get('/review', (req, res, next) => {
     Review.find({})
+    .populate("user")
     .then(response => {
         console.log(response)
         res.status(200).json(response)
