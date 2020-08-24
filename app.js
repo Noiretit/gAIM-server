@@ -11,9 +11,10 @@ const MongoStore = require("connect-mongo")(session);
 const cors = require("cors");
 
 const auth = require("./routes/auth");
-const marketplaceRouter = require("./routes/marketplace")
-const reviewRouter = require("./routes/review")
-const userRouter = require("./routes/user")
+const marketplaceRouter = require("./routes/marketplace");
+const reviewRouter = require("./routes/review");
+const userRouter = require("./routes/user");
+const offerRouter = require("./routes/gameToSell");
 
 // MONGOOSE CONNECTION:
 mongoose
@@ -71,6 +72,7 @@ app.use("/auth", auth);
 app.use("/api", marketplaceRouter);
 app.use("/api", reviewRouter);
 app.use("/api", userRouter);
+app.use("/api", offerRouter);
 
 // ERROR HANDLING
 // catch 404 and forward to error handler

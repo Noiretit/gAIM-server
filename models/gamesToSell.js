@@ -3,20 +3,9 @@ const Schema = mongoose.Schema;
 
 const gamesToSellSchema = new Schema(
   {
-    image: {
+    videoGameId: {
       type: String,
-      required: true,
     },
-    title: {
-      type: String,
-      required: true,
-    },
-    platforms: [
-      {
-        type: String,
-        required: true,
-      },
-    ],
     price: {
       type: String,
       required: true,
@@ -26,17 +15,11 @@ const gamesToSellSchema = new Schema(
       enum: ["selling", "booked", "sold"],
       default: "selling",
     },
-    parentPlatforms: [
-      {
-        type: String,
-        required: true,
-      },
-    ],
     childrenPlatform: {
       type: String,
       required: true,
     },
-    users: {
+    user: {
       type: Schema.Types.ObjectId,
       ref: "User",
     },
