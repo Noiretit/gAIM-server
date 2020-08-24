@@ -6,6 +6,12 @@ const gamesToSellSchema = new Schema(
     videoGameId: {
       type: String,
     },
+    videoGameName: {
+      type: String,
+    },
+    videoGamePic: {
+      type: String,
+    },
     price: {
       type: String,
     },
