@@ -1,11 +1,23 @@
 const express = require("express");
 const router = express.Router();
-
 const GamesToSell = require("../models/gamesToSell");
-
 router.post("/offer", (req, res, next) => {
-  const { price, childrenPlatform, id, user } = req.body;
-  GamesToSell.create({ price, childrenPlatform, id, user })
+  const {
+    price,
+    childrenPlatform,
+    videoGameId,
+    videoGameName,
+    videoGamePic,
+    user,
+  } = req.body;
+  GamesToSell.create({
+    price,
+    childrenPlatform,
+    videoGameId,
+    videoGameName,
+    videoGamePic,
+    user,
+  })
     .then((response) => {
       console.log(response);
       res.status(200);
@@ -15,7 +27,6 @@ router.post("/offer", (req, res, next) => {
       res.status(500)
     );
 });
-
 router.get("/offer", (req, res, next) => {
   GamesToSell.find({})
     .populate("user")
@@ -25,5 +36,4 @@ router.get("/offer", (req, res, next) => {
     })
     .catch((err) => console.log(err));
 });
-
 module.exports = router;
