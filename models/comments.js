@@ -9,6 +9,7 @@ const commentSchema = new Schema(
     },
     review: String,
     videogameId: String,
+    videogameName: String,
     rating: {
       type: String,
     },
