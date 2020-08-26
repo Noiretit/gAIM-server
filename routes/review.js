@@ -8,7 +8,7 @@ router.post("/review", (req, res, next) => {
   Review.create({ review, videogameId, videogameName, user })
     .then((response) => {
       console.log(response);
-      res.status(200);
+      res.status(200).json(response);
     })
     .catch(
       (err) =>
@@ -22,7 +22,7 @@ router.get("/review", (req, res, next) => {
   Review.find({})
     .populate("user")
     .then((response) => {
-      console.log(response);
+      // console.log(response);
       res.status(200).json(response);
     })
     .catch(
