@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const GamesToSell = require("../models/gamesToSell");
+
 router.post("/offer", (req, res, next) => {
   const {
     price,
@@ -37,4 +38,23 @@ router.get("/offer", (req, res, next) => {
     })
     .catch((err) => console.log(err));
 });
+module.exports = router;
+
+//TO DELETE ONE OFFER
+router.post("/offer/delete", (req, res, next) => {
+  const idOfTransaction = req.body.id;
+
+  GamesToSell.deleteOne(
+    {
+      _id: idOfTransaction,
+    },
+    function (err) {
+      if (err) console.log(err);
+      console.log("Transaction successfully deleted");
+    }
+  )
+    .then((data) => res.json(data).status(200))
+    .catch((err) => console.log(err));
+});
+
 module.exports = router;
