@@ -12,7 +12,7 @@ const {
   validationLoggin,
 } = require("../helpers/middlewares");
 
-//  POST '/signup'
+// POST '/signup'
 
 router.post(
   "/signup",
