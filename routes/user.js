@@ -35,11 +35,19 @@ router.put("/myprofile/edit", isLoggedIn(), async (req, res, next) => {
 
 router.post("/myprofile/favorite", (req, res, next) => {
   const { favoriteVideogames, userID } = req.body;
-  console.log(req.body);
-  console.log(userID);
 
   User.findByIdAndUpdate(userID, {
     $push: { favoriteVideogames: favoriteVideogames },
+  })
+    .then((data) => res.json(data).status(200))
+    .catch((err) => console.log(err));
+});
+
+router.post("/myprofile/removeFavorite", (req, res, next) => {
+  const { favoriteVideogames, userID } = req.body;
+
+  User.findByIdAndUpdate(userID, {
+    $pull: { favoriteVideogames: favoriteVideogames },
   })
     .then((data) => res.json(data).status(200))
     .catch((err) => console.log(err));
