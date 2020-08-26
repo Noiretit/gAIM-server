@@ -45,7 +45,7 @@ router.post("/review/delete", (req, res, next) => {
     },
     function (err) {
       if (err) console.log(err);
-      console.log("Successful deletion");
+      console.log("Offer successfully deleted");
     }
   )
     .then((data) => res.json(data).status(200))
