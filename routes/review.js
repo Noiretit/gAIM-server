@@ -16,6 +16,7 @@ router.post("/review", (req, res, next) => {
       res.status(500)
     );
 });
+
 //  Ruta para encontrar todos los reviews
 router.get("/review", (req, res, next) => {
   Review.find({})
@@ -32,6 +33,23 @@ router.get("/review", (req, res, next) => {
         ),
       res.status(500)
     );
+});
+
+//TO DELETE ONE COMMENT
+router.post("/review/delete", (req, res, next) => {
+  const idOfReview = req.body.id;
+
+  Review.deleteOne(
+    {
+      _id: idOfReview,
+    },
+    function (err) {
+      if (err) console.log(err);
+      console.log("Successful deletion");
+    }
+  )
+    .then((data) => res.json(data).status(200))
+    .catch((err) => console.log(err));
 });
 
 module.exports = router;
