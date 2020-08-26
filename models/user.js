@@ -19,6 +19,17 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    gender: {
+      type: String,
+    },
+    picture: String,
+    favoriteVideogames: [
+      {
+        type: String,
+        enum: ["to play", "playing", "beaten", "dropped"],
+        default: "to play",
+      },
+    ],
     transactions: [
       {
         type: Schema.Types.ObjectId,
@@ -31,7 +42,6 @@ const userSchema = new Schema(
         ref: "Comments",
       },
     ],
-    picture: String,
   },
   {
     timestamps: true,

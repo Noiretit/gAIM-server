@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const User = require("../models/user");
 
-// HELPER FUNCTIONS
+// HELPER FUNCTIONS:
 const {
   isLoggedIn,
   isNotLoggedIn,
@@ -16,20 +16,15 @@ const {
 
 router.post(
   "/signup",
-  // revisamos si el user no está ya logueado usando la función helper (chequeamos si existe req.session.currentUser)
   isNotLoggedIn(),
-  // revisa que se hayan completado los valores de username y password usando la función helper
   validationLoggin(),
   async (req, res, next) => {
-    const { username, email, password, genre } = req.body;
+    const { username, email, password, genre, gender } = req.body;
 
     try {
-      // chequea si el username ya existe en la BD
-      const usernameExists = await User.findOne({ username }, "username");
-      // si el usuario ya existe, pasa el error a middleware error usando next()
-      if (usernameExists) return next(createError(400));
+      const emailExists = await User.findOne({ email }, "email");
+      if (emailExists) return next(createError(400));
       else {
-        // en caso contratio, si el usuario no existe, hace hash del password y crea un nuevo usuario en la BD
         const salt = bcrypt.genSaltSync(saltRounds);
         const hashPass = bcrypt.hashSync(password, salt);
         const newUser = await User.create({
@@ -37,8 +32,8 @@ router.post(
           email,
           password: hashPass,
           genre,
+          gender,
         });
-        // luego asignamos el nuevo documento user a req.session.currentUser y luego enviamos la respuesta en json
         req.session.currentUser = newUser;
         res
           .status(200) //  OK
@@ -52,17 +47,15 @@ router.post(
 
 //  POST '/login'
 
-// chequea que el usuario no esté logueado usando la función helper (chequea si existe req.session.currentUser)
-// revisa que el username y el password se estén enviando usando la función helper
 router.post(
   "/login",
   isNotLoggedIn(),
   validationLoggin(),
   async (req, res, next) => {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
     try {
       // revisa si el usuario existe en la BD
-      const user = await User.findOne({ username });
+      const user = await User.findOne({ email });
       // si el usuario no existe, pasa el error al middleware error usando next()
       if (!user) {
         next(createError(404));

@@ -11,6 +11,10 @@ const MongoStore = require("connect-mongo")(session);
 const cors = require("cors");
 
 const auth = require("./routes/auth");
+const marketplaceRouter = require("./routes/marketplace");
+const reviewRouter = require("./routes/review");
+const userRouter = require("./routes/user");
+const offerRouter = require("./routes/gameToSell");
 
 // MONGOOSE CONNECTION:
 mongoose
@@ -29,7 +33,7 @@ const app = express();
 app.use(
   cors({
     credentials: true,
-    origin: [process.env.PUBLIC_DOMAIN],
+    origin: [process.env.PUBLIC_DOMAIN, 'https://gaim-m3project.web.app'],
   })
 );
 // app.use((req, res, next) => {
@@ -65,6 +69,10 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // ROUTER MIDDLEWARE
 app.use("/auth", auth);
+app.use("/api", marketplaceRouter);
+app.use("/api", reviewRouter);
+app.use("/api", userRouter);
+app.use("/api", offerRouter);
 
 // ERROR HANDLING
 // catch 404 and forward to error handler
