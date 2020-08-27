@@ -2,14 +2,6 @@ const express = require("express");
 const router = express.Router();
 const GamesToSell = require("../models/gamesToSell.js");
 
-// HELPER FUNCTIONS
-const {
-  isLoggedIn,
-  isNotLoggedIn,
-  validationLoggin,
-} = require("../helpers/middlewares");
-
-
 //Change the status to "Booked"
 router.post("/marketplace/status", (req, res, next) => {
   const { id, status } = req.body;
