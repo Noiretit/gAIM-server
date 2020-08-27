@@ -22,7 +22,6 @@ const userSchema = new Schema(
     gender: {
       type: String,
     },
-    picture: String,
     favoriteVideogames: [
       {
         type: String,

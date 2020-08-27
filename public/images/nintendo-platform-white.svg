@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="130px" height="100px" viewBox="0 0 130 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" fill="#FFFFFF">
+            <path d="M50,100 C22.3857625,100 1.42108547e-14,77.6142375 1.42108547e-14,50 C1.42108547e-14,22.3857625 22.3857625,0 50,0 L80,0 C107.614237,0 130,22.3857625 130,50 C130,77.6142375 107.614237,100 80,100 L50,100 Z M50,87.5 C29.2893219,87.5 12.5,70.7106781 12.5,50 C12.5,29.2893219 29.2893219,12.5 50,12.5 L80,12.5 C100.710678,12.5 117.5,29.2893219 117.5,50 C117.5,70.7106781 100.710678,87.5 80,87.5 L50,87.5 Z" id="Shape"></path>
+            <polygon id="Path" fill-rule="nonzero" points="40.235 26.455 54.915 26.455 75.215 59.285 75.215 26.455 89.765 26.455 89.765 73.545 75.225 73.545 54.835 40.705 54.835 73.545 40.245 73.545"></polygon>
+        </g>
+    </g>
+</svg>
