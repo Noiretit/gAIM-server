@@ -9,10 +9,6 @@ const {
   validationLoggin,
 } = require("../helpers/middlewares");
 
-// GET '/marketplace'
-router.get("/marketplace", isLoggedIn(), (req, res, next) => {
-  res.status(200).json({ message: "You are on the marketplace page!" });
-});
 
 //Change the status to "Booked"
 router.post("/marketplace/status", (req, res, next) => {
