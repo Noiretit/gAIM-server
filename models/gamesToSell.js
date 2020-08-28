@@ -14,6 +14,7 @@ const gamesToSellSchema = new Schema(
     },
     price: {
       type: String,
+      required: true,
     },
     status: {
       type: String,

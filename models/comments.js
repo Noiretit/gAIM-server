@@ -7,7 +7,10 @@ const commentSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "User",
     },
-    review: String,
+    review: {
+      type: String,
+      required: true,
+    },
     videogameId: String,
     videogameName: String,
     rating: {
