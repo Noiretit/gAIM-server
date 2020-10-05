@@ -29,6 +29,7 @@ router.post("/offer", (req, res, next) => {
     );
 });
 
+//TO GET ONE OFFER
 router.get("/offer", (req, res, next) => {
   GamesToSell.find({})
     .populate("user")

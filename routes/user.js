@@ -5,7 +5,7 @@ const User = require("../models/user");
 
 const { isLoggedIn } = require("../helpers/middlewares");
 
-// GET '/myprofile'
+// TO GET YOUR PROFILE
 router.get("/myprofile", isLoggedIn(), (req, res, next) => {
   User.findById(req.session.currentUser._id)
     .then((response) => {
@@ -14,6 +14,7 @@ router.get("/myprofile", isLoggedIn(), (req, res, next) => {
     .catch((err) => console.log("Error while getting profile", err));
 });
 
+//TO EDIT YOUR PROFILE
 router.put("/myprofile/edit", isLoggedIn(), async (req, res, next) => {
   try {
     const { username, email, genre, gender } = req.body;
@@ -33,6 +34,7 @@ router.put("/myprofile/edit", isLoggedIn(), async (req, res, next) => {
   }
 });
 
+//TO SAVE A FAVORITE IN YOUR PROFILE
 router.post("/myprofile/favorite", (req, res, next) => {
   const { favoriteVideogames, userID } = req.body;
 
@@ -43,6 +45,7 @@ router.post("/myprofile/favorite", (req, res, next) => {
     .catch((err) => console.log(err));
 });
 
+//TO REMOTE A FAVORITE FROM YOUR PROFILE
 router.post("/myprofile/removeFavorite", (req, res, next) => {
   const { favoriteVideogames, userID } = req.body;
 

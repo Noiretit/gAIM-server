@@ -16,7 +16,7 @@ router.post("/review", (req, res, next) => {
     );
 });
 
-//  Ruta para encontrar todos los reviews
+//TO GET ALL REVIEWS
 router.get("/review", (req, res, next) => {
   Review.find({})
     .populate("user")
